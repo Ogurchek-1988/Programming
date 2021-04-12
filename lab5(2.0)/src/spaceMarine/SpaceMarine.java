@@ -20,6 +20,7 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
         this.creationDate = creationDate;
         this.health = health;
         this.heartCount = heartCount;
+        this.height = height;
         this.weaponType = weaponType;
         this.chapter = chapter;
     }

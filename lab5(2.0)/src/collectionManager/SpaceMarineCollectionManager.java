@@ -80,4 +80,9 @@ public class SpaceMarineCollectionManager implements CollectionManager{
     public Iterator<SpaceMarine> getIterator() {
         return spaceMarineTreeSet.iterator();
     }
+
+    @Override
+    public TreeSet<SpaceMarine> getSpaceMarines(){
+        return spaceMarineTreeSet;
+    }
 }

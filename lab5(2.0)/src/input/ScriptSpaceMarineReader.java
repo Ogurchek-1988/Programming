@@ -23,7 +23,7 @@ public class ScriptSpaceMarineReader implements SpaceMarineReader{
 
     @Override
     public SpaceMarine readSpaceMarine(){
-        SpaceMarineBuilder spaceMarineBuilder = new SpaceMarineBuilderImpl();
+        SpaceMarineBuilder spaceMarineBuilder = new SpaceMarineBuilderImpl(messenger);
         spaceMarineBuilder.setId();
         try {
             readFields(spaceMarineBuilder);
@@ -35,7 +35,7 @@ public class ScriptSpaceMarineReader implements SpaceMarineReader{
 
     @Override
     public SpaceMarine readSpaceMarine(long id, ZonedDateTime creationDate){
-        SpaceMarineBuilder spaceMarineBuilder = new SpaceMarineBuilderImpl();
+        SpaceMarineBuilder spaceMarineBuilder = new SpaceMarineBuilderImpl(messenger);
         try{
             spaceMarineBuilder.setId(id);
             spaceMarineBuilder.setCreationDate(creationDate);

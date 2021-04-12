@@ -30,7 +30,7 @@ public class ApplicationImpl implements Application{
         messenger = new MessengerImpl(new RuCommandMessages(), new EngExceptionMessages(), new EngSpaceMarineCollectionMessages());
         outputManager = new ConsoleOutputManager();
         inputManager = new ConsoleInputManager(messenger,outputManager);
-        DataReader dataReader = new CSVSpaceMarineReader(fileName);
+        DataReader dataReader = new CSVSpaceMarineReader(fileName, messenger);
         DataWriter dataWriter = new CSVSpaceMarineWriter(fileName);
         DataManager dataManager = new DataManagerImpl(dataReader,dataWriter,messenger);
         CollectionManager collectionManager = new SpaceMarineCollectionManager(dataManager);
@@ -57,7 +57,7 @@ public class ApplicationImpl implements Application{
             } catch (NoSuchCommandException | ScriptRecursionException e){
                 outputManager.printErrorMsg(e.getMessage() + "\n");
             } catch (NoSuchElementException e){
-                outputManager.printErrorMsg(messenger.getExceptionMsg("NoSuchElement") + "\n");
+                outputManager.printErrorMsg(messenger.getExceptionMsg("noSuchElement") + "\n");
                 exit();
             }
         }

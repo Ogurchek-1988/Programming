@@ -196,6 +196,9 @@ public class MessengerImpl implements Messenger{
                 case "heartCount":
                     return collectionMessages.getInputHeartCountMsg();
 
+                case "height":
+                    return collectionMessages.getInputHeightMsg();
+
                 case "weaponType":
                     return collectionMessages.getInputWeaponTypeMsg();
 

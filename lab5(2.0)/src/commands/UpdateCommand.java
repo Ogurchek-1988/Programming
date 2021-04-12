@@ -32,7 +32,7 @@ public class UpdateCommand implements Command, RequiringArg<Long>{
             collectionManager.removeElement(arg);
             collectionManager.addElement(spaceMarine);
         } else{
-            outputManager.printErrorMsg(messenger.getExceptionMsg("NoSuchId") + "\n");
+            outputManager.printErrorMsg(messenger.getExceptionMsg("noSuchId") + "\n");
         }
     }
 

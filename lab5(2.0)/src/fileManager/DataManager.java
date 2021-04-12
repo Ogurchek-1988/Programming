@@ -6,8 +6,9 @@ import exceptions.NoDataException;
 import spaceMarine.SpaceMarine;
 
 import java.util.Collection;
+import java.util.TreeSet;
 
 public interface DataManager {
     Collection<? extends SpaceMarine> readElements() throws InvalidArgumentException, NoDataException, BrokenDataException;
-    void writeElements(Collection<? extends SpaceMarine> collection);
+    void writeElements(TreeSet<SpaceMarine> collection);
 }

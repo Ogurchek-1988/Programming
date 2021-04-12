@@ -24,7 +24,7 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
 
     @Override
     public SpaceMarine readSpaceMarine(){
-        SpaceMarineBuilder spaceMarineBuilder = new SpaceMarineBuilderImpl();
+        SpaceMarineBuilder spaceMarineBuilder = new SpaceMarineBuilderImpl(messenger);
         spaceMarineBuilder.setId();
         readFileds(spaceMarineBuilder);
         return spaceMarineBuilder.getSpaceMarine();
@@ -32,7 +32,7 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
 
     @Override
     public SpaceMarine readSpaceMarine(long id, ZonedDateTime creationDate){
-        SpaceMarineBuilder spaceMarineBuilder = new SpaceMarineBuilderImpl();
+        SpaceMarineBuilder spaceMarineBuilder = new SpaceMarineBuilderImpl(messenger);
         try{
             spaceMarineBuilder.setId(id);
             spaceMarineBuilder.setCreationDate(creationDate);
@@ -59,29 +59,30 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
             spaceMarineBuilder.setCoordinatesX(Integer.parseInt(scanner.nextLine().trim()));
         } catch (InvalidArgumentException e){
             outputManager.printErrorMsg(e.getMessage() + "\n");
-            readName(spaceMarineBuilder);
+            readCoordinatesX(spaceMarineBuilder);
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("NoInteger") + "\n");
+            outputManager.printErrorMsg(messenger.getExceptionMsg("noInteger") + "\n");
             readCoordinatesX(spaceMarineBuilder);
         }
     }
 
     private void readCoordinatesY(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("coordinatesY" + ":"));
+        outputManager.printMsg(messenger.getFieldInputMsg("coordinatesY") + ":");
         try{
             spaceMarineBuilder.setCoordinatesY(Long.parseLong(scanner.nextLine().trim()));
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("NoLong" + "\n"));
+            outputManager.printErrorMsg(messenger.getExceptionMsg("noLong") + "\n");
             readCoordinatesY(spaceMarineBuilder);
         }
     }
 
     private void readHealth(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("health" + ":"));
+        outputManager.printMsg(messenger.getFieldInputMsg("health") + ":");
         try {
             spaceMarineBuilder.setHealth(Integer.parseInt(scanner.nextLine().trim()));
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("NoInteger" + "\n"));
+            outputManager.printErrorMsg(messenger.getExceptionMsg("noInteger") + "\n");
+            readHealth(spaceMarineBuilder);
         } catch (InvalidArgumentException e){
             outputManager.printErrorMsg(e.getMessage() + "\n");
             readHealth(spaceMarineBuilder);
@@ -89,11 +90,12 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readHeartCount(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("heartCount" + ":"));
+        outputManager.printMsg(messenger.getFieldInputMsg("heartCount") + ":");
         try{
             spaceMarineBuilder.setHeartCount(Integer.parseInt(scanner.nextLine().trim()));
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("NoInteger" + "\n"));
+            outputManager.printErrorMsg(messenger.getExceptionMsg("noInteger") + "\n");
+            readHeartCount(spaceMarineBuilder);
         } catch (InvalidArgumentException e){
             outputManager.printErrorMsg(e.getMessage() + "\n");
             readHeartCount(spaceMarineBuilder);
@@ -101,21 +103,22 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readHeight(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("height" + ":"));
+        outputManager.printMsg(messenger.getFieldInputMsg("height") + ":");
         try{
             spaceMarineBuilder.setHeight(Integer.parseInt(scanner.nextLine().trim()));
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("NoInteger" + "\n"));
+            outputManager.printErrorMsg(messenger.getExceptionMsg("noInteger") + "\n");
             readHeight(spaceMarineBuilder);
         }
     }
 
     private void readWeaponType(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("weaponType" + ":"));
+        outputManager.printMsg(messenger.getFieldInputMsg("weaponType") + ":");
         try{
             spaceMarineBuilder.setWeaponType(Weapon.valueOf(scanner.nextLine().trim().toUpperCase()));
         } catch (IllegalArgumentException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("NoEnum" + "\n"));
+            outputManager.printErrorMsg(messenger.getExceptionMsg("noEnum") + "\n");
+            readWeaponType(spaceMarineBuilder);
         } catch (InvalidArgumentException e){
             outputManager.printErrorMsg(e.getMessage() + "\n");
             readWeaponType(spaceMarineBuilder);
@@ -123,7 +126,7 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readChapterName(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("chapterName" + ":"));
+        outputManager.printMsg(messenger.getFieldInputMsg("chapterName") + ":");
         try{
             spaceMarineBuilder.setChapterName(scanner.nextLine().trim());
         } catch (InvalidArgumentException e){
@@ -133,7 +136,7 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readChapterWorld(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("chapterWorld" + ":"));
+        outputManager.printMsg(messenger.getFieldInputMsg("chapterWorld") + ":");
         try{
             spaceMarineBuilder.setChapterWorld(scanner.nextLine().trim());
         } catch (InvalidArgumentException e){

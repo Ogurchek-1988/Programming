@@ -14,6 +14,8 @@ public interface CollectionMessages {
 
     String getInputNameMsg();
 
+    String getInputHeightMsg();
+
     String getInputCoordinatesXMsg();
 
     String getInputCoordinatesYMsg();

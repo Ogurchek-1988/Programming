@@ -33,8 +33,8 @@ public class EngSpaceMarineCollectionMessages implements CollectionMessages {
 
     @Override
     public String getSpaceMarineString(SpaceMarine spaceMarine) {
-        return String.format("id=%d; name=%s; coordinates=(%.2f, %d); creationDate=%s; health=%d; heartCount=%d; " +
-                        "height=%d; weaponType=%s; chapter=%s, name=%s, world=%s", spaceMarine.getId(), spaceMarine.getName(), spaceMarine.getCoordinates().getX(), spaceMarine.getCoordinates().getY(),
+        return String.format("id=%d; name=%s; coordinates=(%d, %d); creationDate=%s; health=%d; heartCount=%d; " +
+                        "height=%d; weaponType=%s; chapterName=%s, chapterWorld=%s", spaceMarine.getId(), spaceMarine.getName(), spaceMarine.getCoordinates().getX(), spaceMarine.getCoordinates().getY(),
                 spaceMarine.getCreationDate(), spaceMarine.getHealth(), spaceMarine.getHeartCount(), spaceMarine.getHeight(),
                 spaceMarine.getWeaponType(), spaceMarine.getChapter().getName(), spaceMarine.getChapter().getWorld());
     }
@@ -78,6 +78,9 @@ public class EngSpaceMarineCollectionMessages implements CollectionMessages {
     public String getInputHeartCountMsg(){
         return inputHeartCountMsg;
     }
+
+    @Override
+    public String getInputHeightMsg() {return inputHeightMsg;}
 
     @Override
     public String getInputWeaponTypeMsg(){

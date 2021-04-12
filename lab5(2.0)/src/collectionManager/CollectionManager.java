@@ -1,5 +1,6 @@
 package collectionManager;
 
+import com.sun.source.tree.Tree;
 import exceptions.BrokenDataException;
 import exceptions.InvalidArgumentException;
 import exceptions.NoDataException;
@@ -8,6 +9,7 @@ import spaceMarine.SpaceMarine;
 
 import java.time.ZonedDateTime;
 import java.util.Iterator;
+import java.util.TreeSet;
 import java.util.stream.Stream;
 
 public interface CollectionManager {
@@ -21,4 +23,5 @@ public interface CollectionManager {
     void saveSpaceMarine();
     Stream<SpaceMarine> getSpaceMarineStream();
     Iterator<SpaceMarine> getIterator();
+    TreeSet<SpaceMarine> getSpaceMarines();
 }

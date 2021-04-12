@@ -2,8 +2,8 @@ package fileManager;
 
 import spaceMarine.SpaceMarine;
 
-import java.util.Collection;
+import java.util.TreeSet;
 
 public interface DataWriter {
-    void writeElements(Collection<? extends SpaceMarine> collection);
+    void writeElements(TreeSet<SpaceMarine> collection);
 }

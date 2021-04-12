@@ -23,7 +23,7 @@ public class CommandInvokerImpl implements CommandInvoker{
             try {
                 command.setArg(Long.parseLong(arg));
             } catch (NumberFormatException e){
-                throw new InvalidArgumentTypeException(messenger.getExceptionMsg("NoLong"));
+                throw new InvalidArgumentTypeException(messenger.getExceptionMsg("noLong"));
             }
         } else{
             throw new NoArgException(messenger.getExceptionMsg("noArg"));

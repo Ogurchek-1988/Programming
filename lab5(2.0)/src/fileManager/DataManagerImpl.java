@@ -7,6 +7,7 @@ import messeges.Messenger;
 import spaceMarine.SpaceMarine;
 
 import java.util.Collection;
+import java.util.TreeSet;
 
 public class DataManagerImpl implements DataManager{
     private DataReader dataReader;
@@ -18,6 +19,8 @@ public class DataManagerImpl implements DataManager{
     }
 
     public DataManagerImpl(DataReader dataReader, DataWriter dataWriter, Messenger messenger) {
+        this.dataReader = dataReader;
+        this.dataWriter = dataWriter;
     }
 
     @Override
@@ -26,7 +29,7 @@ public class DataManagerImpl implements DataManager{
     }
 
     @Override
-    public void writeElements(Collection<? extends SpaceMarine> collection){
+    public void writeElements(TreeSet<SpaceMarine> collection){
         dataWriter.writeElements(collection);
     }
 }

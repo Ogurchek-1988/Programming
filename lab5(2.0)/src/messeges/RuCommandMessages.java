@@ -23,7 +23,7 @@ public class RuCommandMessages implements CommandMessages{
         addIfMinDescription = "add_if_min {element} : добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции";
         clearDescription = "clear : очистить коллекцию";
         executeScriptDescription = "execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме";
-        exitDescription = "завершить программу (без сохранения в файл)";
+        exitDescription = "exit : завершить программу (без сохранения в файл)";
         filterContainsNameDescription = "filter_contains_name name : вывести элементы, значение поля name которых содержит заданную подстроку";
         helpDescription = "help : вывести справку по доступным командам";
         infoDescription = "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)";

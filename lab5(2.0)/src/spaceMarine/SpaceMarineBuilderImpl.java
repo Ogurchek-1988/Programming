@@ -4,6 +4,7 @@ import collectionManager.IdManager;
 import collectionManager.SpaceMarineIdManager;
 import exceptions.InvalidArgumentException;
 import exceptions.NotUniqueIdExeption;
+import messeges.Messenger;
 
 import java.time.Clock;
 import java.time.ZonedDateTime;
@@ -20,10 +21,12 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
     private ChapterBuilderImpl chapterBuilder; //Поле может быть null
     private SpaceMarineValidatorImpl validator;
     private IdManager idManager;
+    private Messenger messenger;
 
-    public SpaceMarineBuilderImpl() {
+    public SpaceMarineBuilderImpl(Messenger messenger) {
         idManager = SpaceMarineIdManager.getInstance();
         validator = new SpaceMarineValidatorImpl();
+        this.messenger = messenger;
     }
 
     @Override
@@ -37,10 +40,10 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
             if (idManager.idIsFree(id)) {
                 this.id = id;
             } else {
-                throw new NotUniqueIdExeption("");
+                throw new NotUniqueIdExeption(messenger.getExceptionMsg("notUniqueId"));
             }
         } else {
-            throw new InvalidArgumentException("");
+            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidId"));
         }
     }
 
@@ -49,14 +52,14 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateName(name)) {
             this.name = name;
         } else {
-            throw new InvalidArgumentException("");
+            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidName"));
         }
     }
 
     @Override
     public void setCoordinatesX(Integer x) throws InvalidArgumentException {
         if (coordinatesBuilder == null) {
-            coordinatesBuilder = new CoordinatesBuilderImpl();
+            coordinatesBuilder = new CoordinatesBuilderImpl(messenger);
         }
         coordinatesBuilder.setX(x);
     }
@@ -64,7 +67,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
     @Override
     public void setCoordinatesY(long y) {
         if (coordinatesBuilder == null) {
-            coordinatesBuilder = new CoordinatesBuilderImpl();
+            coordinatesBuilder = new CoordinatesBuilderImpl(messenger);
         }
         coordinatesBuilder.setY(y);
     }
@@ -74,7 +77,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateCreationDate(creationDate)) {
             this.creationDate = creationDate;
         } else {
-            throw new InvalidArgumentException("");
+            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidCreationDate"));
         }
     }
 
@@ -83,7 +86,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateHealth(health)) {
             this.health = health;
         } else {
-            throw new InvalidArgumentException("");
+            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidHealth"));
         }
     }
 
@@ -92,7 +95,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateHeartCount(heartCount)) {
             this.heartCount = heartCount;
         } else {
-            throw new InvalidArgumentException("");
+            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidHeartCount"));
         }
     }
 
@@ -106,25 +109,25 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateWeaponType(weaponType)) {
             this.weaponType = weaponType;
         } else {
-            throw new InvalidArgumentException("");
+            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidWeaponType"));
         }
     }
 
     @Override
     public void setChapterName(String name) throws InvalidArgumentException {
-        if (chapterBuilder == null) chapterBuilder = new ChapterBuilderImpl();
+        if (chapterBuilder == null) chapterBuilder = new ChapterBuilderImpl(messenger);
         chapterBuilder.setName(name);
     }
 
     @Override
     public void setChapterWorld(String world) {
-        if (chapterBuilder == null) chapterBuilder = new ChapterBuilderImpl();
+        if (chapterBuilder == null) chapterBuilder = new ChapterBuilderImpl(messenger);
         chapterBuilder.setWorld(world);
     }
 
     @Override
     public SpaceMarine getSpaceMarine() {
-        if (validator.validateCreationDate(creationDate)) {
+        if (!validator.validateCreationDate(creationDate)) {
             creationDate = ZonedDateTime.now(Clock.systemUTC());
         }
         idManager.addId(id);

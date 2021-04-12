@@ -54,7 +54,7 @@ public class CommandManagerImpl implements CommandManager{
                 return;
             }
         } else {
-            throw new NoSuchCommandException(messenger.getExceptionMsg("NoSuchCommand") + ": " + command);
+            throw new NoSuchCommandException(messenger.getExceptionMsg("noSuchCommand") + ": " + command);
         }
     }
 
