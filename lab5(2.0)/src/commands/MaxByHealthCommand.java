@@ -10,7 +10,6 @@ public class MaxByHealthCommand implements Command{
     private CollectionManager collectionManager;
     private Messenger messenger;
     private OutputManager outputManager;
-
     public MaxByHealthCommand(CollectionManager collectionManager, Messenger messenger, OutputManager outputManager){
         this.collectionManager = collectionManager;
         this.messenger = messenger;

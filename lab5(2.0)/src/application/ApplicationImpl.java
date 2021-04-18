@@ -13,7 +13,9 @@ import output.ConsoleOutputManager;
 import output.OutputManager;
 
 import java.util.NoSuchElementException;
-
+/**
+ * Класс космо-десантника
+ */
 public class ApplicationImpl implements Application{
     private boolean exit;
     private OutputManager outputManager;
@@ -27,7 +29,7 @@ public class ApplicationImpl implements Application{
 
     @Override
     public void start(String fileName){
-        messenger = new MessengerImpl(new RuCommandMessages(), new EngExceptionMessages(), new EngSpaceMarineCollectionMessages());
+        messenger = new MessengerImpl();
         outputManager = new ConsoleOutputManager();
         inputManager = new ConsoleInputManager(messenger,outputManager);
         DataReader dataReader = new CSVSpaceMarineReader(fileName, messenger);
@@ -40,9 +42,9 @@ public class ApplicationImpl implements Application{
             outputManager.printErrorMsg(e.getMessage() + "\n");
         }
         this.commandManager = new CommandManagerImpl(collectionManager, this, messenger, outputManager, inputManager);
-        outputManager.printMsg(messenger.getStartMsg() + "\n");
+        outputManager.printMsg(messenger.getMesseng("start") + "\n");
         run();
-        outputManager.printMsg(messenger.getFinishMsg());
+        outputManager.printMsg(messenger.getMesseng("finish"));
     }
 
     private void run(){
@@ -57,7 +59,7 @@ public class ApplicationImpl implements Application{
             } catch (NoSuchCommandException | ScriptRecursionException e){
                 outputManager.printErrorMsg(e.getMessage() + "\n");
             } catch (NoSuchElementException e){
-                outputManager.printErrorMsg(messenger.getExceptionMsg("noSuchElement") + "\n");
+                outputManager.printErrorMsg(messenger.getMesseng("noSuchElement") + "\n");
                 exit();
             }
         }

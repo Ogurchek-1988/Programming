@@ -8,7 +8,9 @@ import messeges.Messenger;
 
 import java.time.Clock;
 import java.time.ZonedDateTime;
-
+/**
+ * Класс строитель paceMarine
+ */
 public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -40,10 +42,10 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
             if (idManager.idIsFree(id)) {
                 this.id = id;
             } else {
-                throw new NotUniqueIdExeption(messenger.getExceptionMsg("notUniqueId"));
+                throw new NotUniqueIdExeption(messenger.getMesseng("notUniqueId"));
             }
         } else {
-            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidId"));
+            throw new InvalidArgumentException(messenger.getMesseng("invalidId"));
         }
     }
 
@@ -52,7 +54,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateName(name)) {
             this.name = name;
         } else {
-            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidName"));
+            throw new InvalidArgumentException(messenger.getMesseng("invalidName"));
         }
     }
 
@@ -77,7 +79,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateCreationDate(creationDate)) {
             this.creationDate = creationDate;
         } else {
-            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidCreationDate"));
+            throw new InvalidArgumentException(messenger.getMesseng("invalidCreationDate"));
         }
     }
 
@@ -86,7 +88,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateHealth(health)) {
             this.health = health;
         } else {
-            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidHealth"));
+            throw new InvalidArgumentException(messenger.getMesseng("invalidHealth"));
         }
     }
 
@@ -95,7 +97,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateHeartCount(heartCount)) {
             this.heartCount = heartCount;
         } else {
-            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidHeartCount"));
+            throw new InvalidArgumentException(messenger.getMesseng("invalidHeartCount"));
         }
     }
 
@@ -109,7 +111,7 @@ public class SpaceMarineBuilderImpl implements SpaceMarineBuilder {
         if (validator.validateWeaponType(weaponType)) {
             this.weaponType = weaponType;
         } else {
-            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidWeaponType"));
+            throw new InvalidArgumentException(messenger.getMesseng("invalidWeaponType"));
         }
     }
 

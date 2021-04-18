@@ -6,6 +6,9 @@ import messeges.Messenger;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+/**
+ * реалицазия интерфейса CommandReader
+ */
 public class ScriptCommandReader implements CommandReader{
     private BufferedReader reader;
     private Messenger messenger;
@@ -21,7 +24,7 @@ public class ScriptCommandReader implements CommandReader{
             String input = reader.readLine();
             return input.trim().toLowerCase();
         } catch (IOException e){
-            throw new ScriptException(messenger.getExceptionMsg("script"));
+            throw new ScriptException(messenger.getMesseng("script"));
         }
     }
 }

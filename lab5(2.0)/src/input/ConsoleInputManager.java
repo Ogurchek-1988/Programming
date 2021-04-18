@@ -7,6 +7,9 @@ import spaceMarine.SpaceMarine;
 import java.time.ZonedDateTime;
 import java.util.Scanner;
 
+/**
+ * реализация интерфейса InputManager
+ */
 public class ConsoleInputManager implements InputManager{
     private Scanner scanner;
     private CommandReader commandReader;

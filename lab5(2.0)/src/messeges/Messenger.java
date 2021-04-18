@@ -1,7 +1,12 @@
+/*
 package messeges;
 
 import exceptions.NoSuchCommandException;
 import spaceMarine.SpaceMarine;
+*/
+/**
+ * Интерфейс мессенджер
+ *//*
 
 public interface Messenger {
 
@@ -23,3 +28,19 @@ public interface Messenger {
 
     String getFinishMsg();
 }
+*/
+package messeges;
+
+import exceptions.NoSuchCommandException;
+import spaceMarine.SpaceMarine;
+
+public interface Messenger {
+    String getMesseng(String msgName);
+
+    String getSpaceMarineString(SpaceMarine spaceMarine);
+
+    String getFieldInputMsg(String fieldName) throws NoSuchCommandException;
+
+    String getCommandDescription(String commandName) throws NoSuchCommandException;
+}
+

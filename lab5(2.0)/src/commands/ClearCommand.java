@@ -2,6 +2,9 @@ package commands;
 
 import collectionManager.CollectionManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ClearCommand implements Command{
     private CollectionManager collectionManager;
 

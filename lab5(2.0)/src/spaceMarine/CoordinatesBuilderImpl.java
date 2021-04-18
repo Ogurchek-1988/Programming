@@ -3,7 +3,9 @@ package spaceMarine;
 
 import exceptions.InvalidArgumentException;
 import messeges.Messenger;
-
+/**
+ * Класс строитель координат
+ */
 public class CoordinatesBuilderImpl implements CoordinatesBuilder {
     private Integer x; //Значение поля должно быть больше -941, Поле не может быть null
     private long y;
@@ -17,7 +19,7 @@ public class CoordinatesBuilderImpl implements CoordinatesBuilder {
         if (validator.validateX(x)){
             this.x = x;
         } else {
-            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidCoordinatesX"));
+            throw new InvalidArgumentException(messenger.getMesseng("invalidCoordinatesX"));
         }
     }
     public void setY(long y){

@@ -4,7 +4,9 @@ import collectionManager.CollectionManager;
 import input.InputManager;
 import spaceMarine.SpaceMarine;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class RemoveLowerCommand implements Command{
     private CollectionManager collectionManager;

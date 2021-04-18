@@ -15,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ExecuteScriptCommand implements Command, RequiringArg<String>{
     private OutputManager outputManager;
@@ -37,7 +39,7 @@ public class ExecuteScriptCommand implements Command, RequiringArg<String>{
             CommandManager commandManager = new CommandManagerImpl(collectionManager, app, messenger, outputManager, inputManager);
             if (commandManager.scriptIsUsed(arg)){
                 commandManager.clearUsedScripts();
-                throw new ScriptRecursionException(messenger.getExceptionMsg("scriptRecursion"));
+                throw new ScriptRecursionException(messenger.getMesseng("scriptRecursion"));
             }
             commandManager.usedScriptAdd(arg);
             while (inputManager.ready()){
@@ -49,13 +51,13 @@ public class ExecuteScriptCommand implements Command, RequiringArg<String>{
                     else
                         commandManager.executeCommand(input[0], input[1]);
                 } catch (NoSuchCommandException | ScriptException e){
-                    outputManager.printErrorMsg(messenger.getExceptionMsg("script") + "\n");
+                    outputManager.printErrorMsg(messenger.getMesseng("script") + "\n");
                     return;
                 }
             }
             commandManager.usedScriptRemove(arg);
         } catch (IOException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noFile") + "\n");
+            outputManager.printErrorMsg(messenger.getMesseng("noFile") + "\n");
         }
     }
 

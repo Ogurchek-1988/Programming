@@ -2,7 +2,9 @@ package spaceMarine;
 
 import exceptions.InvalidArgumentException;
 import messeges.Messenger;
-
+/**
+ * строитель Chapter
+ */
 public class ChapterBuilderImpl implements ChapterBuilder {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private String world; //Поле может быть null
@@ -17,7 +19,7 @@ public class ChapterBuilderImpl implements ChapterBuilder {
         if (validator.validateName(name)){
             this.name = name;
         } else{
-            throw new InvalidArgumentException(messenger.getExceptionMsg("invalidChapterName"));
+            throw new InvalidArgumentException(messenger.getMesseng("invalidChapterName"));
         }
     }
     public void setWorld(String world){

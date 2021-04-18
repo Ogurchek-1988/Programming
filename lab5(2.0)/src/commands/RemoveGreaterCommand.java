@@ -2,12 +2,11 @@ package commands;
 
 import collectionManager.CollectionManager;
 import input.InputManager;
-import messeges.Messenger;
 import spaceMarine.SpaceMarine;
 
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.Map;
 
 public class RemoveGreaterCommand implements Command{
     private CollectionManager collectionManager;
@@ -17,7 +16,6 @@ public class RemoveGreaterCommand implements Command{
     public RemoveGreaterCommand(CollectionManager collectionManager, InputManager inputManager){
         this.collectionManager = collectionManager;
         this.inputManager = inputManager;
-
     }
 
     @Override

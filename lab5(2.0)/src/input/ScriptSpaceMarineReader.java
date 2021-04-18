@@ -12,6 +12,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 
+/**
+ * класс реализующий интерфейс SpaceMarineReader
+ */
 public class ScriptSpaceMarineReader implements SpaceMarineReader{
     private BufferedReader reader;
     private Messenger messenger;
@@ -28,7 +31,7 @@ public class ScriptSpaceMarineReader implements SpaceMarineReader{
         try {
             readFields(spaceMarineBuilder);
         } catch (IOException | InvalidArgumentException | NumberFormatException e){
-            throw new ScriptException(messenger.getExceptionMsg("script") + "\n");
+            throw new ScriptException(messenger.getMesseng("script") + "\n");
         }
         return spaceMarineBuilder.getSpaceMarine();
     }
@@ -41,7 +44,7 @@ public class ScriptSpaceMarineReader implements SpaceMarineReader{
             spaceMarineBuilder.setCreationDate(creationDate);
             readFields(spaceMarineBuilder);
         } catch (IOException | InvalidArgumentException | NumberFormatException e){
-            throw new ScriptException(messenger.getExceptionMsg("script" + "\n"));
+            throw new ScriptException(messenger.getMesseng("script") + "\n");
         }
         return spaceMarineBuilder.getSpaceMarine();
     }

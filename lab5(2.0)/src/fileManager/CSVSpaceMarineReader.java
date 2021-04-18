@@ -28,6 +28,8 @@ public class CSVSpaceMarineReader implements DataReader{
         this.fileName = fileName;
         this.messenger = messenger;
     }
+
+
     @Override
     public Collection<? extends SpaceMarine> readElements() throws NoDataException, BrokenDataException, InvalidArgumentException {
         if (fileName == null){
@@ -48,7 +50,7 @@ public class CSVSpaceMarineReader implements DataReader{
         String[] validFirstString = new String[]{"id", "name", "coordinatesX", "coordinatesY", "creationDate",
                 "health", "heartCount", "height", "weaponType", "chapterName", "chapterWorld"};
         if (strLines.isEmpty() || !Arrays.equals(strLines.get(0), validFirstString)){
-            throw new BrokenDataException(messenger.getExceptionMsg("brokenData"));
+            throw new BrokenDataException(messenger.getMesseng("brokenData"));
         }
         strLines.remove(0);
         for (String[] s: strLines){
@@ -74,7 +76,7 @@ public class CSVSpaceMarineReader implements DataReader{
         } catch (IllegalArgumentException e){
             throw new InvalidArgumentException(e.getMessage());
         } catch (DateTimeParseException e){
-            throw new BrokenDataException(messenger.getExceptionMsg("brokenData"));
+            throw new BrokenDataException(messenger.getMesseng("brokenData"));
         }
     }
 }

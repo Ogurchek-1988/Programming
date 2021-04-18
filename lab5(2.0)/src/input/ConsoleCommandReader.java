@@ -1,6 +1,9 @@
 package input;
 
 import java.util.Scanner;
+/**
+ * реализация интерфейса CommandReader
+ */
 
 public class ConsoleCommandReader implements CommandReader{
     private Scanner scanner;

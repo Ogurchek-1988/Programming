@@ -1,5 +1,7 @@
 package spaceMarine;
-
+/**
+ * Класс координат
+ */
 public class Coordinates {
     private Integer x; //Значение поля должно быть больше -941, Поле не может быть null
     private long y;

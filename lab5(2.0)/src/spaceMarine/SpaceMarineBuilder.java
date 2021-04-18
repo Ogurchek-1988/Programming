@@ -3,7 +3,9 @@ package spaceMarine;
 import exceptions.InvalidArgumentException;
 
 import java.time.ZonedDateTime;
-
+/**
+ * интерфейс строитель класса SpaceMarine
+ */
 public interface SpaceMarineBuilder {
     void setId();
     void setId(long id) throws InvalidArgumentException;

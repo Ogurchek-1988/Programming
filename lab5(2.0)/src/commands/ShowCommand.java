@@ -3,6 +3,8 @@ package commands;
 import collectionManager.CollectionManager;
 import messeges.Messenger;
 import output.OutputManager;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShowCommand implements Command{
     private CollectionManager collectionManager;

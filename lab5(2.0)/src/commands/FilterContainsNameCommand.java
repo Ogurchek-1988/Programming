@@ -5,6 +5,9 @@ import exceptions.NoArgException;
 import messeges.Messenger;
 import output.OutputManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FilterContainsNameCommand implements Command, RequiringArg<String>{
     private CollectionManager collectionManager;
     private Messenger messenger;

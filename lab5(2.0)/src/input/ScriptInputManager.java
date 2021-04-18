@@ -7,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 
+/**
+ * реализация интерфейса InputManager
+ */
 public class ScriptInputManager implements InputManager{
     private BufferedReader reader;
     private CommandReader commandReader;

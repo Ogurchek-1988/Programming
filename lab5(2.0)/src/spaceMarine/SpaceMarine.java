@@ -1,7 +1,9 @@
 package spaceMarine;
 
 import java.time.ZonedDateTime;
-
+/**
+ * Класс SpaceMarine
+ */
 public class SpaceMarine implements Comparable<SpaceMarine>{
     private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой

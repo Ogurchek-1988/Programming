@@ -5,9 +5,9 @@ import exceptions.InvalidArgumentTypeException;
 import exceptions.NoArgException;
 import messeges.Messenger;
 import output.OutputManager;
-import spaceMarine.SpaceMarine;
 
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RemoveByIdCommand implements Command, RequiringArg<Long>{
     private CollectionManager collectionManager;
@@ -24,12 +24,7 @@ public class RemoveByIdCommand implements Command, RequiringArg<Long>{
     @Override
     public void execute(){
         if(!collectionManager.removeElement(arg)){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noSuchId") + "\n");
-
-            /*Iterator<SpaceMarine> iterator = collectionManager.getIterator();
-            while (iterator.hasNext())
-                if (iterator.next().getId() == arg)
-                    iterator.remove(); */
+            outputManager.printErrorMsg(messenger.getMesseng("noSuchId") + "\n");
         }
     }
 

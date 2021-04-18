@@ -11,6 +11,9 @@ import spaceMarine.Weapon;
 import java.time.ZonedDateTime;
 import java.util.Scanner;
 
+/**
+ * класс считывания объекта из консоли
+ */
 public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     private Scanner scanner;
     private OutputManager outputManager;
@@ -44,7 +47,7 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readName(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("name") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputName") + ":");
         try{
             spaceMarineBuilder.setName(scanner.nextLine().trim());
         } catch (InvalidArgumentException e){
@@ -54,34 +57,34 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readCoordinatesX(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("coordinatesX") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputCoordinatesX") + ":");
         try{
             spaceMarineBuilder.setCoordinatesX(Integer.parseInt(scanner.nextLine().trim()));
         } catch (InvalidArgumentException e){
             outputManager.printErrorMsg(e.getMessage() + "\n");
             readCoordinatesX(spaceMarineBuilder);
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noInteger") + "\n");
+            outputManager.printErrorMsg(messenger.getMesseng("noInteger") + "\n");
             readCoordinatesX(spaceMarineBuilder);
         }
     }
 
     private void readCoordinatesY(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("coordinatesY") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputCoordinatesY") + ":");
         try{
             spaceMarineBuilder.setCoordinatesY(Long.parseLong(scanner.nextLine().trim()));
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noLong") + "\n");
+            outputManager.printErrorMsg(messenger.getMesseng("noLong") + "\n");
             readCoordinatesY(spaceMarineBuilder);
         }
     }
 
     private void readHealth(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("health") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputHealth") + ":");
         try {
             spaceMarineBuilder.setHealth(Integer.parseInt(scanner.nextLine().trim()));
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noInteger") + "\n");
+            outputManager.printErrorMsg(messenger.getMesseng("noInteger") + "\n");
             readHealth(spaceMarineBuilder);
         } catch (InvalidArgumentException e){
             outputManager.printErrorMsg(e.getMessage() + "\n");
@@ -90,11 +93,11 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readHeartCount(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("heartCount") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputHeartCount") + ":");
         try{
             spaceMarineBuilder.setHeartCount(Integer.parseInt(scanner.nextLine().trim()));
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noInteger") + "\n");
+            outputManager.printErrorMsg(messenger.getMesseng("noInteger") + "\n");
             readHeartCount(spaceMarineBuilder);
         } catch (InvalidArgumentException e){
             outputManager.printErrorMsg(e.getMessage() + "\n");
@@ -103,21 +106,21 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readHeight(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("height") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputHeight") + ":");
         try{
             spaceMarineBuilder.setHeight(Integer.parseInt(scanner.nextLine().trim()));
         } catch (NumberFormatException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noInteger") + "\n");
+            outputManager.printErrorMsg(messenger.getMesseng("noInteger") + "\n");
             readHeight(spaceMarineBuilder);
         }
     }
 
     private void readWeaponType(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("weaponType") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputWeaponType") + ":");
         try{
             spaceMarineBuilder.setWeaponType(Weapon.valueOf(scanner.nextLine().trim().toUpperCase()));
         } catch (IllegalArgumentException e){
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noEnum") + "\n");
+            outputManager.printErrorMsg(messenger.getMesseng("noEnum") + "\n");
             readWeaponType(spaceMarineBuilder);
         } catch (InvalidArgumentException e){
             outputManager.printErrorMsg(e.getMessage() + "\n");
@@ -126,7 +129,7 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readChapterName(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("chapterName") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputChapterName") + ":");
         try{
             spaceMarineBuilder.setChapterName(scanner.nextLine().trim());
         } catch (InvalidArgumentException e){
@@ -136,7 +139,7 @@ public class ConsoleSpaceMarineReader implements SpaceMarineReader{
     }
 
     private void readChapterWorld(SpaceMarineBuilder spaceMarineBuilder){
-        outputManager.printMsg(messenger.getFieldInputMsg("chapterWorld") + ":");
+        outputManager.printMsg(messenger.getMesseng("inputChapterWorld") + ":");
         try{
             spaceMarineBuilder.setChapterWorld(scanner.nextLine().trim());
         } catch (InvalidArgumentException e){

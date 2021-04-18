@@ -4,6 +4,8 @@ import exceptions.NoSuchCommandException;
 import messeges.Messenger;
 import output.OutputManager;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class HelpCommand implements Command{

@@ -9,6 +9,9 @@ import messeges.Messenger;
 import output.OutputManager;
 import spaceMarine.SpaceMarine;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class UpdateCommand implements Command, RequiringArg<Long>{
     private CollectionManager collectionManager;
     private Messenger messenger;
@@ -32,7 +35,7 @@ public class UpdateCommand implements Command, RequiringArg<Long>{
             collectionManager.removeElement(arg);
             collectionManager.addElement(spaceMarine);
         } else{
-            outputManager.printErrorMsg(messenger.getExceptionMsg("noSuchId") + "\n");
+            outputManager.printErrorMsg(messenger.getMesseng("noSuchId") + "\n");
         }
     }
 

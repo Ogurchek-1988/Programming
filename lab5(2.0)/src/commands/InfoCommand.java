@@ -4,6 +4,9 @@ import collectionManager.CollectionManager;
 import messeges.Messenger;
 import output.OutputManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class InfoCommand implements Command{
     private CollectionManager collectionManager;
     private Messenger messenger;
@@ -17,8 +20,8 @@ public class InfoCommand implements Command{
 
     @Override
     public void execute(){
-        outputManager.printMsg(messenger.getCollectionTypeMsg() + ":" + collectionManager.getType().getSimpleName() +
-        "\n" + messenger.getCollectionInitDateMsg() + ":" + collectionManager.getInitDate() +
-        "\n" + messenger.getCollectionSizeMsg() + ":" + collectionManager.getSize() + "\n");
+        outputManager.printMsg(messenger.getMesseng("collectionType") + ":" + collectionManager.getType().getSimpleName() +
+        "\n" + messenger.getMesseng("collectionInitDate") + ":" + collectionManager.getInitDate() +
+        "\n" + messenger.getMesseng("collectionSize") + ":" + collectionManager.getSize() + "\n");
     }
 }

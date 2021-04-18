@@ -21,8 +21,8 @@ public class CommandManagerImpl implements CommandManager{
     public CommandManagerImpl(CollectionManager collectionManager, Application app, Messenger messenger, OutputManager outputManager, InputManager inputManager){
         this.outputManager = outputManager;
         this.messenger = messenger;
-        commandMap = new HashMap<>();
         commandInvoker = new CommandInvokerImpl(messenger);
+        commandMap = new HashMap<>();
         commandMap.put("help", new HelpCommand(commandMap.keySet(), messenger, outputManager));
         commandMap.put("info", new InfoCommand(collectionManager, messenger, outputManager));
         commandMap.put("show", new ShowCommand(collectionManager,messenger,outputManager));
@@ -54,7 +54,7 @@ public class CommandManagerImpl implements CommandManager{
                 return;
             }
         } else {
-            throw new NoSuchCommandException(messenger.getExceptionMsg("noSuchCommand") + ": " + command);
+            throw new NoSuchCommandException(messenger.getMesseng("noSuchCommand") + ": " + command);
         }
     }
 

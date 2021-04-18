@@ -4,6 +4,9 @@ import spaceMarine.SpaceMarine;
 
 import java.time.ZonedDateTime;
 
+/**
+ * интерфейс менеджера ввода
+ */
 public interface InputManager {
 
     boolean ready();

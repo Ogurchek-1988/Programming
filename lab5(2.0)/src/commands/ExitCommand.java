@@ -2,6 +2,9 @@ package commands;
 
 import application.Application;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ExitCommand implements Command{
     private Application app;
 

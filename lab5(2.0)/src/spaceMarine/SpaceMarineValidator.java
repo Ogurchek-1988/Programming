@@ -1,7 +1,9 @@
 package spaceMarine;
 
 import java.time.ZonedDateTime;
-
+/**
+ * интерфейс валидатора класса SpaceMarine
+ */
 public interface SpaceMarineValidator {
     boolean validateId(long id);
     boolean validateName(String name);

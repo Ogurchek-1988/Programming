@@ -4,6 +4,9 @@ import collectionManager.CollectionManager;
 import input.InputManager;
 import spaceMarine.SpaceMarine;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AddIfMinCommand implements Command{
     private CollectionManager collectionManager;
     private InputManager inputManager;

@@ -1,6 +1,5 @@
 package collectionManager;
 
-import com.sun.source.tree.Tree;
 import exceptions.BrokenDataException;
 import exceptions.InvalidArgumentException;
 import exceptions.NoDataException;
