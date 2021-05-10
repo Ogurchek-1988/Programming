@@ -4,11 +4,7 @@ import collectionManager.CollectionManager;
 import messeges.Messenger;
 import output.OutputManager;
 import spaceMarine.SpaceMarine;
-import sun.applet.resources.MsgAppletViewer;
-
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 public class SumOfHeightCommand implements Command{
     private CollectionManager collectionManager;
